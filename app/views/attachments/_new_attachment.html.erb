@@ -1,0 +1,30 @@
+<div id='new_attachment'>
+	<a href="javascript:$('#new_attachment').children().toggle();"><%= t(:new) %> <%= t(:attachment).downcase %></a>
+	<div id="form_attachment" style="display: none;">
+		<%= form_for Attachment.new, :remote => true do |f| %>
+			<%= hidden_field :attachment, :post_id, :value => post.id %>
+			<div class="field">
+				<%= f.label :description %><br />
+				<%= f.text_field 'description' %>
+			</div>
+			  <div class="field">
+    			<%= f.label :path %><br />
+    			<%= f.file_field :path %>
+  			</div>
+			<div class="actions">
+				<%= f.submit %>
+				<a href="javascript:$('#new_attachment').children().toggle();"><%= t(:cancel) %></a>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+<%content_for :js do%>
+	$('#form_attachment').bind('ajax:complete', function(xhr, result){
+	$('#attachments').html(result.responseText);
+	$('#form_attachment text_field').val("")
+	$('#form_attachment').hide();
+	$('#new_attachment > a').show();
+});
+
+<%end%>

@@ -1,0 +1,16 @@
+<p id="link_<%= link.id %>" style="width:430px;background-color:#<%= link.post.category.color%>;margin:10px; padding:10px; margin-top:5px;border-radius:11px;float:left;">
+	<%= link.description %> - <%= link.url %> 
+	<br><%= link.user.name %> - <%= I18n.localize(link.created_at, :format => :long)  %>
+	<%= link_to t(:remove), link,
+		:method => :delete,
+		:remote => true,
+		:id => "remove_link_#{link.id}" %>
+</p>
+<%= content_for :js do%>
+	$('#remove_link_<%=link.id%>').bind(
+	'ajax:success',
+	function(xhr, result){
+		$('#link_<%=link.id%>').remove();
+		}
+	);
+<%end%>

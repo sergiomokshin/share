@@ -1,0 +1,30 @@
+<h1><%= t(:categories) %></h1>
+
+<table>
+  <tr>
+    <th><%= t(:description) %></th>
+    <th><%= t(:color) %></th>
+    <th><%= t(:active) %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= category.description %></td>
+    <td>
+          <div style="background-color:#<%= category.color%>;width:15px;height:15px; border-radius:3px;">  
+          </div>
+     </td>
+    <td><%= category.active %></td>
+    <td><%= link_to t(:show), category %></td>
+    <td><%= link_to t(:edit), edit_category_path(category) %></td>
+    <td><%= link_to t(:destroy), category, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t(:new), new_category_path %>

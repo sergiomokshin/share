@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sharing</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "jquery", "rails" %>
+  <%= javascript_include_tag "application", "jscolor/jscolor.js"%>  
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="user_nav">
+	  <% if current_user %>
+	    <%= t(:welcome) %>, <%= current_user.name %>!
+	    <%= link_to t(:sig_out), signout_path %>-
+	    <%= current_user.id %>-
+	    <%= current_user.provider %>-
+	    <%= current_user.uid %>-
+	    <%= current_user.name %>.   
+	  <% else %>
+	     <%= link_to t(:sig_in), "/auth/facebook" %>
+	  <% end %>
+</div>
+<div>
+	<%= link_to t(:posts), posts_path %>-
+	<%= link_to t(:categories), categories_path %>-
+
+</div>	
+
+<%= yield %>
+<script type="text/javascript">
+	<%=yield :js%>
+</script>
+</body>
+</html>

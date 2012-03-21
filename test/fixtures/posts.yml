@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  subject: MyString
+  body: MyText
+  category_id: 1
+  public: false
+  user_id: 1
+
+two:
+  subject: MyString
+  body: MyText
+  category_id: 1
+  public: false
+  user_id: 1

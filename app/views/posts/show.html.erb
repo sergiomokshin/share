@@ -1,0 +1,38 @@
+<h1><%= t(:post) %></h1>
+<p id="notice"><%= notice %></p>
+
+
+<div style="background-color:#<%= @post.category.color%>;width:900px;margin:10px; padding:10px;border-radius:11px;">
+  <%= @post.category.description %> - <%= @post.subject %>
+  <br>
+   <%= t(:user) %>: <%= @post.user.name %> <%= t(:public) %>: <%= format_boolean(@post.public) %>
+  <br>
+</div>
+
+<div style="background-color:#<%= @post.category.color%>;width:900px;margin:10px; padding:10px; border-radius:11px;">
+  <%= @post.body %>
+</div>
+
+
+<div style="width:430px;float:left;">
+  <%= links @post %>
+  <%= new_link(@post) %>
+</div>
+
+<div style="width:430px;float:left;margin-left:40px">
+  <%= attachments @post %>
+  <%= new_attachment(@post) %>
+</div>
+<br>
+
+<div style="clear:both;width:900px;margin-top:100px;">
+  <%= comments @post %>
+  <%= new_comment(@post) %>
+</div>
+  <br>
+  
+<%= link_to t(:edit), edit_post_path(@post) %> |
+<%= link_to t(:back), posts_path %>
+
+
+
