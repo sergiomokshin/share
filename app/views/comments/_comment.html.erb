@@ -5,6 +5,7 @@
 		:method => :delete,
 		:remote => true,
 		:id => "remove_comment_#{comment.id}" %>
+	<image src='<%= comment.user.image %>'>	
 </p>
 <%= content_for :js do%>
 	$('#remove_comment_<%=comment.id%>').bind(

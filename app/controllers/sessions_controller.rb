@@ -2,8 +2,8 @@ class SessionsController < ApplicationController
 
 	def create
 	  auth = request.env["omniauth.auth"]	  
-	  @user = User.login(auth)
-	  session[:user_id] = @user.id
+	  user = User.login(auth)
+	  session[:user_id] = user.id
 	  
 	  #session[:user_id] = 2
 	  

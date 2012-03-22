@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+  class User < ActiveRecord::Base
   has_and_belongs_to_many :posts
   has_many :posts
   has_many :comments
@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
 
   def self.login(auth)
     @user = User.find(:all, :conditions => { :provider => auth["provider"], :uid => auth["uid"]}).first
-    puts "Usuario encontrado"
-    puts @user
 
     if not @user
       user = User.new
@@ -17,7 +15,9 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       puts 'retorno'
       puts auth
-      user.name = auth["name"]
+      user.name = auth["info"]["name"]
+      user.email = auth["info"]["email"]
+      user.image = auth["info"]["image"]
       #user.name = auth["user_info"]["name"]    
       user.save 
       user
@@ -34,9 +34,10 @@ private
       puts 'retorno'
       puts auth
       user.name = auth["name"]
+      user.email = auth["info"]["email"]
+      user.image = auth["info"]["image"]
       #user.name = auth["user_info"]["name"]    
-      user.save	
+      user.save 
       user
     end
-
 end

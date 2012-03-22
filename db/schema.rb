@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120319143221) do
+ActiveRecord::Schema.define(:version => 20120322002039) do
 
   create_table "attachments", :force => true do |t|
     t.string   "description"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20120319143221) do
     t.boolean  "active"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "image"
   end
 
 end

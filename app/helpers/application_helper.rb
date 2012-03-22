@@ -8,7 +8,12 @@ module ApplicationHelper
 		else
 			retorno =  "Não"			
 		end				
-	end
+	end 
+
+	def format_url(url)
+    	/^http/.match(url) ? url : "http://#{url}"
+  	end
+
 
 	def comments(post)
 		comments = "<div id='comments'>"
