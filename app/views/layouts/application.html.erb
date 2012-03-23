@@ -8,25 +8,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="user_nav">
-	  <% if current_user %>
-	    <%= t(:welcome) %>, <%= current_user.name %>!
-	    <%= link_to t(:sig_out), signout_path %>-
-	    <%= current_user.id %>-
-	    <%= current_user.provider %>-
-	    <%= current_user.uid %>-
-	    <%= current_user.name %>.   
-	  <% else %>
-	     <%= link_to t(:sig_in), "/auth/facebook" %>
-	  <% end %>
-</div>
-<div>
-	<%= link_to t(:posts), posts_path %>-
-	<%= link_to t(:categories), categories_path %>-
-
-</div>	
-
-<%= yield %>
+<div id="principal" style="width:960px;height:100px;margin: 0 auto;">
+		<div style="height:40px;">
+			<div style="width:320px;height:49px;margin-top:10px;float:left;">
+				<div style="width:193px;height:49px;margin-top:10px;background: url(/images/logo.jpg);">
+	   			</div>
+	   		</div>	
+			<div style="float:left;width:480px;height:60px;padding-top:0px">
+				<h3><%= t(:welcome) %>, <%= current_user.name %>!</h3>
+			</div>
+			<div style="float:left;height:60px;padding-top:45px">
+					<%= link_to t(:posts), posts_path %>
+					<%= link_to t(:categories), categories_path %>
+					<%= link_to t(:sig_out), signout_path, confirm: 'Deseja realmente sair??' %>
+			</div>			
+		</div>
+		<div style="clear:both;padding-top:0px">	
+			<%= yield %>		   		
+		</div>	
+   	</div>	
 <script type="text/javascript">
 	<%=yield :js%>
 </script>
