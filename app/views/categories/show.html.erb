@@ -12,12 +12,5 @@
   <b><%= t(:color) %>:</b><div style="background-color:#<%= @category.color%>;height:20px; width:20px;"></div>
 </p>
 
-
-<p>
-  <b><%= t(:active) %>:</b>
-  <%= @category.active %>
-</p>
-
-
 <%= link_to t(:edit), edit_category_path(@category) %> |
 <%= link_to t(:back), categories_path %>

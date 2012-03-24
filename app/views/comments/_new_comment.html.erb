@@ -1,4 +1,4 @@
-<div id='new_comment'>
+<div id='new_comment' style="padding-left:10px;">
 	<a href="javascript:$('#new_comment').children().toggle();"><%= t(:new) %> <%= t(:comment).downcase %></a>
 	<div id="form_comment" style="display: none;">
 		<%= form_for Comment.new, :remote => true do |f| %>

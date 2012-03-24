@@ -1,12 +1,13 @@
-<p id="comment_<%= comment.id %>" style="width:900px;background-color:#<%= comment.post.category.color%>;margin:10px; padding:10px; margin-top:5px;border-radius:11px;float:left;">
-	<%= comment.description %> <br>
-	<%= comment.user.name %> - <%= I18n.localize(comment.created_at, :format => :long)  %>
-	<%= link_to t(:remove), comment,
-		:method => :delete,
-		:remote => true,
-		:id => "remove_comment_#{comment.id}" %>
-	<image src='<%= comment.user.image %>'>	
-</p>
+<div id="comment_<%= comment.id %>" style="width:100%;background-color:#<%= comment.post.category.color%>;margin:10px; padding:10px; margin-top:5px;border-radius:11px;float:left;">
+		<%= comment.description %>
+		<br>
+		<%= comment.user.name %> -
+		<%= I18n.localize(comment.created_at, :format => :long)  %>
+		<%= link_to t(:remove), comment,
+			:method => :delete,
+			:remote => true,
+			:id => "remove_comment_#{comment.id}" %>
+</div>
 <%= content_for :js do%>
 	$('#remove_comment_<%=comment.id%>').bind(
 	'ajax:success',

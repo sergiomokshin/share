@@ -267,5 +267,7 @@ pt-BR:
   description: "Descrição"
   color: "Cor"
   active: "Ativo"
+  public: "Público"
+  private: "Privado"
 
 

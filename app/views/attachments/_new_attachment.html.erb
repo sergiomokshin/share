@@ -1,4 +1,4 @@
-<div id='new_attachment'>
+<div id='new_attachment' style="padding-left:10px;">
 	<a href="javascript:$('#new_attachment').children().toggle();"><%= t(:new) %> <%= t(:attachment).downcase %></a>
 	<div id="form_attachment" style="display: none;">
 		<%= form_for Attachment.new, :remote => true do |f| %>
