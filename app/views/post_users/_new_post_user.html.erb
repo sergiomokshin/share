@@ -1,0 +1,39 @@
+<div id='new_post_user' style="padding-left:10px;">
+	<a href="javascript:$('#new_post_user').children().toggle();"><%= t(:new) %> user</a>
+	<div id="form_post_user" style="display: none;">
+		<form accept-charset="UTF-8" action="/post_users" class="new_category" id="new_category" method="post">
+			<%= hidden_field :posts_user, :post_id, :value => post.id %>
+			<div class="field">
+				name:
+				<%= select("post", "user_id", User.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Person'}) %>	
+			</div>
+			<div class="actions">				
+				 <input name="commit" type="submit" value="criar user" />
+				<a href="javascript:$('#new_post_user').children().toggle();"><%= t(:cancel) %></a>
+			</div>
+		</form>	
+	</div>
+</div>
+	
+<%content_for :js do%>
+	$('#form_post_user').bind('ajax:complete', function(xhr, result){
+	$('#post_users').html(result.responseText);
+	$('#form_post_user textarea').val("")
+	$('#form_post_user').hide();
+	$('#new_post_user > a').show();
+});
+
+	function include_user(){		
+		var data = new Object();
+		data.post_id = <%= post.id%>;		
+		data.user_id = $("option:selected","#post_user_id").val();
+
+		$.ajax({
+			url: '<%= new_post_user_path %>',
+			data: arg,
+			success : function(data){
+				alert('retorno OK');
+			}
+		});		
+	}
+<%end%>

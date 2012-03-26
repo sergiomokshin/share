@@ -17,7 +17,12 @@
   </div>
   <div class="field">
     <%= f.label :color %><br />
-    <%= f.text_field :color, :class => "color" %>
+    <%= f.text_field :color, :class => "color", :onchange =>  "document.getElementById('category_font_color').value = this.color.hsv[2]"%>
+    <%= f.text_field :font_color %>
+
+
+
+
   </div>  
   <div class="actions">
     <%= f.submit %>

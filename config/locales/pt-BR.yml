@@ -243,6 +243,8 @@ pt-BR:
   link: "Link"
   attachments: "Anexos"
   attachment: "Anexo"
+  post_users: "Usuários Compartilhados"
+  post_user: "Usuario Compartilhado"
     
   user: "Usuário"
   public: "Público"

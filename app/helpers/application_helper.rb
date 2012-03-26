@@ -63,4 +63,26 @@ module ApplicationHelper
 		raw attachments
 	end
 
+	def post_users(post)
+		post_users = "<div id='post_users'>"
+		post_users << "<h1>Users</h1>"
+		
+		post.users.each do |user|			
+			post_users << render(:partial => "post_users/post_user",
+			:locals => { :user => user, :post => post})
+		end
+
+		#post_users << render(:partial => "post_users/post_user",
+		#:collection => post.users) unless post.users.empty?
+
+		post_users << "</div>"
+		raw post_users
+	end
+
+	def new_post_user(post)
+		post_users = render(:partial => "post_users/new_post_user",
+		:locals => { :post => post })
+		raw post_users
+	end	
+
 end

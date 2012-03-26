@@ -1,4 +1,4 @@
-	<p id="attachment_<%= attachment.id %>" style="width:430px;background-color:#<%= attachment.post.category.color%>;margin:10px; padding:10px; margin-top:5px;border-radius:11px;float:left;">
+	<p id="attachment_<%= attachment.id %>" style="width:430px;background-color:#<%= attachment.post.category.color%>;color:#<%= attachment.post.category.font_color%>;margin:10px; padding:10px; margin-top:5px;border-radius:11px;float:left;">
 		<%= attachment.description %> - 
 		<%= File.basename(attachment.path.to_s) %>
 		<br> <%= attachment.user.name %> - <%= I18n.localize(attachment.created_at, :format => :long)  %>

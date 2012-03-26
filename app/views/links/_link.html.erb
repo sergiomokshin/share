@@ -1,4 +1,4 @@
-<p id="link_<%= link.id %>" style="width:430px;background-color:#<%= link.post.category.color%>;margin:10px; padding:10px; margin-top:5px;border-radius:11px;float:left;">
+<p id="link_<%= link.id %>" style="width:430px;background-color:#<%= link.post.category.color%>;color:#<%= link.post.category.font_color%>;margin:10px; padding:10px; margin-top:5px;border-radius:11px;float:left;">
 	<%= link.description %> - <%= link_to format_url(link.url), format_url(link.url), :target => :blank %> 
 	<br><%= link.user.name %> - <%= I18n.localize(link.created_at, :format => :long)  %>
 	<%= link_to t(:remove), link,

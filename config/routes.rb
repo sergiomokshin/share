@@ -1,4 +1,4 @@
-Share::Application.routes.draw do
+  Share::Application.routes.draw do
   
   match "/auth/:provider/callback" => "sessions#create"
   
@@ -15,6 +15,8 @@ Share::Application.routes.draw do
   resources :categories
 
   resources :users
+
+  resources :post_users
 
   root :to => 'posts#index'
 

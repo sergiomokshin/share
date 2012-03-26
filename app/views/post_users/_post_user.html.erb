@@ -1,0 +1,19 @@
+<div id="post_user_<%= user.id %>" style="width:100%;margin:10px; padding:10px; margin-top:5px;background-color:#<%= post.category.color%>;color:#<%= post.category.font_color%>;;border-radius:11px;float:left;">
+		<br>
+		<%= user.name %> -
+		<%= link_to t(:remove), '/post_users/' + user.id.to_s + '_' + post.id.to_s,
+			:method => :delete,
+			:remote => true,
+			:id => "remove_post_user_#{user.id}" %>
+</div>
+<%= content_for :js do%>
+	$('#remove_post_user_<%=user.id%>').bind(
+	'ajax:success',
+	function(xhr, result){
+		$('#post_user_<%=user.id%>').remove();
+		}
+	);
+<%end%>
+
+
+

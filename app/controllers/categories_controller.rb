@@ -61,9 +61,23 @@ class CategoriesController < ApplicationController
   # PUT /categories/1.json
   def update
     @category = Category.find(params[:id])
+    puts '###########Parametro###########'
+    puts params[:category][:font_color]
+    font_color = params[:category][:font_color].to_d
+    puts font_color
+
+   # if font_color >=0.9
+    #  @category.font_color = "000000"
+    #else
+      @category.font_color = "FFFFFF"
+   # end  
+
+
 
     respond_to do |format|
       if @category.update_attributes(params[:category])
+        @category.font_color = "FFFFFF"
+        @category.save
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }
         format.json { head :no_content }
       else

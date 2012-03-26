@@ -1,0 +1,29 @@
+rails generate controller sessions
+
+rails generate scaffold user provider:string uid:string name:string email:string active:boolean
+
+rails generate scaffold category description:string color:string user_id:integer active:boolean
+
+rails generate scaffold post subject:string body:text category_id:integer public:boolean user_id:integer
+
+rails generate scaffold comment description:string post_id:integer user_id:integer
+
+rails generate scaffold link description:string url:string post_id:integer user_id:integer
+
+rails generate scaffold attachment description:string path:string post_id:integer user_id:integer
+
+rails generate migration AddPostAnduser
+class AddPostAnduser < ActiveRecord::Migration
+	def self.up
+		create_table :posts_users, :id => false, :force => true do |t|
+			t.integer :post_id
+			t.integer :user_id		
+			t.timestamps	
+		end
+	end
+	def self.down
+		drop_table :posts_users
+	end
+end
+
+rails generate controller post_users
