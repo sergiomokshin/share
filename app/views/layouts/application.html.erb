@@ -15,12 +15,12 @@
 	   			</div>
 	   		</div>	
 			<div style="float:left;width:460px;height:60px;padding-top:0px">
-				<h3><%= t(:welcome) %>, <%= current_user.name %>!</h3>
+				<h1><%= t(:welcome) %>, <%= current_user.name %>!</h1>
 			</div>
 			<div style="float:left;height:60px;padding-top:45px">
 					<%= link_to t(:posts), posts_path %> |
 					<%= link_to t(:categories), categories_path %> |
-					<%= link_to t(:sig_out), signout_path, confirm: 'Deseja realmente sair??' %>
+					<%= link_to t(:sig_out), signout_path%>
 			</div>			
 		</div>
 		<div style="clear:both;padding-top:0px">	

@@ -1,11 +1,11 @@
 <div id='new_post_user' style="padding-left:10px;">
-	<a href="javascript:$('#new_post_user').children().toggle();"><%= t(:new) %> user</a>
+	<a href="javascript:$('#new_post_user').children().toggle();"><%= t(:new) %> <%= t(:user) %></a>
 	<div id="form_post_user" style="display: none;">
-		<form accept-charset="UTF-8" action="/post_users" class="new_category" id="new_category" method="post">
+		<form accept-charset="UTF-8" action="/post_users" class="new_user" id="new_user" method="post">
 			<%= hidden_field :posts_user, :post_id, :value => post.id %>
 			<div class="field">
-				name:
-				<%= select("post", "user_id", User.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Person'}) %>	
+				<%= t(:user) %>
+				<%= select("post", "user_id", User.all.collect {|p| [ p.name, p.id ] }) %>	
 			</div>
 			<div class="actions">				
 				 <input name="commit" type="submit" value="criar user" />

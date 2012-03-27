@@ -5,7 +5,16 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     
+    #session[:user_id] = 2
+
     @posts = Post.find(:all, :conditions => { :user_id => current_user_id})
+
+
+    @posts_associated = Post.find(:all, :joins => :users,  :conditions => [ 'posts_users.user_id = ?', "#{current_user_id}"])
+
+
+    @posts = @posts + @posts_associated
+    
 
     respond_to do |format|
       format.html # index.html.erb

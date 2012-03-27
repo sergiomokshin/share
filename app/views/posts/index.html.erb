@@ -12,9 +12,15 @@
         Comentários: <%= post.comments.size %>
         Compartilhado: <%= post.users.size %>
         <br>
+
         <%= link_to t(:show), post %>    
-        <%= link_to t(:edit), edit_post_path(post) %>
-        <%= link_to t(:destroy), post, confirm: 'Você tem certeza?', method: :delete %>
+        
+        <% if post.user_id == current_user_id%>
+            <%= link_to t(:edit), edit_post_path(post) %>        
+            <%= link_to t(:destroy), post, confirm: 'Você tem certeza?', method: :delete %>
+        <% end %>    
+
+
     </div>   
     <div style='text-align:center'>        
         <div>
@@ -26,6 +32,6 @@
     </div>   
   </div>
 <% end %>
-
-<br />
-<%= link_to t(:new) , new_post_path %>
+<div style="width:100%;margin-top:20px;text-align:right">
+    <%= link_to t(:new) , new_post_path %>
+</div>    

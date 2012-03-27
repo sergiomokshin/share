@@ -2,12 +2,13 @@
 
 <div>
   <% @categories.each do |category| %>
-    <div style="background-color:#<%= category.color%>;width:100%;height:40px;margin-top:30px;margin-left:-10px;padding-top:10px;padding-left:10px; border-radius:11px;">
+    <div style="background-color:#<%= category.color%>;color:#<%= category.font_color%>;width:100%;height:40px;margin-top:30px;margin-left:-10px;padding-top:10px;padding-left:10px; border-radius:11px;">
       <%= category.description %> - <%= link_to t(:edit), edit_category_path(category) %>
     <% end %>
 </div>
-<br />
-<%= link_to t(:new), new_category_path %>
+<div style="width:100%;margin-top:20px;text-align:right">	
+	<%= link_to t(:new), new_category_path %>
+</div> 	
 
 
 

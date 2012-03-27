@@ -5,8 +5,10 @@
   <div style="float:left;width:800px;">
     <%= @post.public ? t(:public) : t(:private) %>
     <br>
-     <%= @post.category.description %> - <%= @post.subject %>
+     <%= @post.category.description %> - <%= @post.subject  %>
     <br>
+    <br>
+    <%= t(:created_at) %> <%= I18n.localize(@post.created_at, :format => :long)  %>
   </div>   
    <div style='text-align:center;'>        
         <div>
@@ -18,19 +20,13 @@
    </div>   
 
 </div>
-
-
-
 <div style="background-color:#<%= @post.category.color%>;color:#<%= @post.category.font_color%>;width:100%;margin:10px; padding:10px; border-radius:11px;">
   <%= raw break_line(@post.body) %>
 </div>
-
-
 <div style="width:460px;float:left;">
   <%= links @post %>
   <%= new_link(@post) %>
 </div>
-
 <div style="width:460px;float:left;margin-left:40px">
   <%= attachments @post %>
   <%= new_attachment(@post) %>
@@ -42,13 +38,19 @@
   <%= new_comment(@post) %>
 </div>
 
-<div style="clear:both;width:100%;margin-top:20px;">
-  <%= post_users @post %>
-  <%= new_post_user(@post) %>
-</div>
+<% if @post.public %>
+  <div style="clear:both;width:100%;margin-top:20px;">
+    <%= post_users @post %>
+    <%= new_post_user(@post) %>
+  </div>
+<% end %>
 
-<%= link_to t(:edit), edit_post_path(@post) %> |
-<%= link_to t(:back), posts_path %>
+<div style="width:100%;margin-top:20px;text-align:right">
+  <% if @post.user_id == current_user_id%>
+    <%= link_to t(:edit), edit_post_path(@post) %> |
+  <% end %>  
+  <%= link_to t(:back), posts_path %>
+</div>
 <br>
 <br>
 <br>

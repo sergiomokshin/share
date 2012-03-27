@@ -65,7 +65,7 @@ module ApplicationHelper
 
 	def post_users(post)
 		post_users = "<div id='post_users'>"
-		post_users << "<h1>Users</h1>"
+		post_users << "<h1>" + t(:users) +"</h1>"
 		
 		post.users.each do |user|			
 			post_users << render(:partial => "post_users/post_user",

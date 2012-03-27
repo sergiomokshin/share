@@ -245,8 +245,9 @@ pt-BR:
   attachment: "Anexo"
   post_users: "Usuários Compartilhados"
   post_user: "Usuario Compartilhado"
-    
   user: "Usuário"
+  users: "Usuários"
+    
   public: "Público"
 
   listing: "Listar"
@@ -271,5 +272,6 @@ pt-BR:
   active: "Ativo"
   public: "Público"
   private: "Privado"
+  created_at: "Criado em "
 
 
