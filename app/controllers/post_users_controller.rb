@@ -5,17 +5,17 @@ class PostUsersController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-  	   
- 	@user = User.find(params[:post][:user_id])
- 	@post = Post.find(params[:posts_user][:post_id])
+       
+  @user = User.find(params[:post][:user_id])
+  @post = Post.find(params[:posts_user][:post_id])
   
   @post.users << @user
      
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'User was successfully associated.' }
-        format.xml { render :xml => @post_user, :status => :created, :location => @post_user }
-        format.js {}
+        #format.xml { render :xml => @post_user, :status => :created, :location => @post_user }
+        #format.js {}
       else
         format.html { render action: "new" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }

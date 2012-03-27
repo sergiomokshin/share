@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
 	def check_sign_in
 		if not user_signed_in?
-			#redirect_to login_url
+			redirect_to login_url
 		end	
 	end
 

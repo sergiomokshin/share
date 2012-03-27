@@ -3,6 +3,9 @@ class SessionsController < ApplicationController
 	def create
 	  auth = request.env["omniauth.auth"]	  
 	  user = User.login(auth)
+
+	  puts "----------------USUARIO--------------"
+	  puts user.inspect
 	  session[:user_id] = user.id
 	  
 	  #session[:user_id] = 2

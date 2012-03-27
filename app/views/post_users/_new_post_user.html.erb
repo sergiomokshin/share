@@ -3,6 +3,7 @@
 	<div id="form_post_user" style="display: none;">
 		<form accept-charset="UTF-8" action="/post_users" class="new_user" id="new_user" method="post">
 			<%= hidden_field :posts_user, :post_id, :value => post.id %>
+			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token.to_s %>" />			
 			<div class="field">
 				<%= t(:user) %>
 				<%= select("post", "user_id", User.all.collect {|p| [ p.name, p.id ] }) %>	
