@@ -7,6 +7,7 @@ gem 'rails', '3.2.2'
 
 
 group :production do
+#sudo apt-get install libpq5 libpq-dev
   gem 'pg'
 end
 group :development, :test do
