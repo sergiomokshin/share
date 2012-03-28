@@ -217,7 +217,7 @@ pt-BR:
         subject: "Assunto"
         body: "Corpo"
         category_id: "Categoria"
-        public: publico
+        public: "Público"
       category:        
         color: "Cor"
         description: "Descrição"
@@ -246,9 +246,7 @@ pt-BR:
   post_users: "Usuários Compartilhados"
   post_user: "Usuario Compartilhado"
   user: "Usuário"
-  users: "Usuários"
-    
-  public: "Público"
+  users: "Usuários"  
 
   listing: "Listar"
   editing: "Editar"

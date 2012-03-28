@@ -10,7 +10,9 @@
         Anexos:<%= post.attachments.size %>
         Links: <%= post.links.size %>
         Comentários: <%= post.comments.size %>
-        Compartilhado: <%= post.users.size %>
+        <% if post.public %>
+            Compartilhado: <%= post.users.size %>
+        <% end %>    
         <br>
 
         <%= link_to t(:show), post %>    

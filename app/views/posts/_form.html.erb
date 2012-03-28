@@ -12,20 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :subject %><br />
+    <%= f.label :subject %>:<br />
     <%= f.text_field :subject %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
+    <%= f.label :body %>:<br />
     <%= f.text_area :body %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br />
+    <%= f.label :category_id %>:<br />
      <%= f.collection_select(:category_id,
       Category.find(:all, :conditions => { :user_id => current_user_id}),  :id, :description, {:prompt => true}) %>
   </div>
   <div class="field">
-    <%= f.label :public %><br />
+    <%= f.label :public %>:<br />
     <%= f.check_box :public %>
   </div>
   <div class="actions">
