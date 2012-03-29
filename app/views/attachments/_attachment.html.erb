@@ -4,7 +4,7 @@
 
 		<%= link_to 'Download', download_attachment_path,
 			:method => :get,
-			:remote => true,
+			:remote => false,
 			:id => attachment.id %>
 
 		<br> <%= attachment.user.name %> - <%= I18n.localize(attachment.created_at, :format => :long)  %>
