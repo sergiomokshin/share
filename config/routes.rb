@@ -4,7 +4,12 @@
   
   match "/signout" => "sessions#destroy", :as => :signout
 
-  resources :attachments
+
+  resources :attachments do
+       member do
+          get 'download'  
+       end
+  end     
 
   resources :links
 

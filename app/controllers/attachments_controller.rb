@@ -29,4 +29,19 @@ class AttachmentsController < ApplicationController
       format.js { head :ok }
     end
   end
+
+
+  def download
+    
+    @attachment = Attachment.find(params[:id])
+
+    #send_file("#{Rails.root}/public#{@attachment.path}",
+    #          :filename => File.basename(@attachment.path.to_s),
+    #          :type => "application/pdf")
+
+    send_file("#{Rails.root}/public#{@attachment.path}")
+
+  end
+
+
 end
